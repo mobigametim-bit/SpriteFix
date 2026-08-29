@@ -4,6 +4,12 @@ AI Sprite Sheet Repair & Normalizer.
 
 SpriteFix is a client-side HTML5 tool for repairing uneven or AI-generated sprite sheets: grid correction, background cleanup, object detection, scale normalization, alignment, preview, validation, and export.
 
+## Project links
+
+- Notion project hub: https://app.notion.com/p/3cb8c73f2252814facc4ea207a077aca?pvs=204
+- GitHub ↔ Notion sync map: [`docs/PROJECT_SYNC.md`](docs/PROJECT_SYNC.md)
+- Development rules: [`AGENTS.md`](AGENTS.md)
+
 ## Project workflow
 
 - `main` — approved, user-tested code only.
@@ -25,5 +31,3 @@ SpriteFix is a client-side HTML5 tool for repairing uneven or AI-generated sprit
 8. F08 Productization — landing, examples, privacy, SEO metadata, analytics, responsive polish.
 9. F09 QA — golden assets, regression tests, browser verification.
 10. F10 Release — production deployment and release checklist.
-
-Project documentation is mirrored in Notion; links will be maintained in `docs/PROJECT_SYNC.md`.
