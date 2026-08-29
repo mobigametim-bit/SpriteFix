@@ -10,6 +10,21 @@ SpriteFix is a client-side HTML5 tool for repairing uneven or AI-generated sprit
 - GitHub ↔ Notion sync map: [`docs/PROJECT_SYNC.md`](docs/PROJECT_SYNC.md)
 - Development rules: [`AGENTS.md`](AGENTS.md)
 
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+Production-style static build:
+
+```bash
+npm run build
+```
+
+Output is written to `dist/`. The checked-in F01 user-test build is under `test-builds/f01/`.
+
 ## Project workflow
 
 - `main` — approved, user-tested code only.
