@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SpriteFix repairs and normalizes sprite sheets locally in your browser." />
+    <title>SpriteFix — Sprite Sheet Repair Tool</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <a class="brand" href="#" aria-label="SpriteFix home">SpriteFix</a>
+          <span class="version">F01</span>
+        </div>
+        <div class="privacy-badge" title="Your image is processed locally and is not uploaded by this tool.">
+          <span class="privacy-dot" aria-hidden="true"></span>
+          Runs locally in your browser
+        </div>
+      </header>
+
+      <main class="workspace-layout">
+        <aside class="settings-panel" aria-label="Grid settings">
+          <div class="panel-heading">
+            <p class="eyebrow">Grid</p>
+            <h1>Frame layout</h1>
+            <p>Define how many equal cells are in the source sheet.</p>
+          </div>
+
+          <div class="field-group">
+            <label for="rows">Rows</label>
+            <div class="number-control">
+              <button type="button" data-step-target="rows" data-step="-1" aria-label="Decrease rows">−</button>
+              <input id="rows" name="rows" type="number" inputmode="numeric" min="1" max="64" value="4" />
+              <button type="button" data-step-target="rows" data-step="1" aria-label="Increase rows">+</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="columns">Columns</label>
+            <div class="number-control">
+              <button type="button" data-step-target="columns" data-step="-1" aria-label="Decrease columns">−</button>
+              <input id="columns" name="columns" type="number" inputmode="numeric" min="1" max="64" value="4" />
+              <button type="button" data-step-target="columns" data-step="1" aria-label="Increase columns">+</button>
+            </div>
+          </div>
+
+          <div class="preset-group" aria-label="Grid presets">
+            <span>Presets</span>
+            <div class="preset-row">
+              <button type="button" class="preset-button is-active" data-grid="4">4×4</button>
+              <button type="button" class="preset-button" data-grid="6">6×6</button>
+              <button type="button" class="preset-button" data-grid="8">8×8</button>
+            </div>
+          </div>
+
+          <div class="panel-note">
+            <span class="note-icon" aria-hidden="true">i</span>
+            Grid changes update the preview instantly. Auto-detection arrives in a later feature.
+          </div>
+        </aside>
+
+        <section class="canvas-panel" aria-label="Sprite sheet workspace">
+          <div id="emptyState" class="empty-state">
+            <button id="dropZone" class="drop-zone" type="button">
+              <span class="upload-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14.5v3A2.5 2.5 0 0 0 7.5 20h9a2.5 2.5 0 0 0 2.5-2.5v-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="drop-title">Drop a PNG sprite sheet here</span>
+              <span class="drop-subtitle">or choose a file from your computer</span>
+              <span class="choose-file">Choose PNG</span>
+              <span class="drop-limits">PNG · up to 4096×4096 px</span>
+            </button>
+          </div>
+
+          <div id="loadedState" class="loaded-state" hidden>
+            <div class="workspace-toolbar">
+              <div class="file-summary">
+                <span id="fileName" class="file-name"></span>
+                <span id="fileResolution" class="file-resolution"></span>
+              </div>
+              <div class="toolbar-actions">
+                <button id="replaceButton" class="ghost-button" type="button">Replace</button>
+                <button id="resetButton" class="ghost-button" type="button">Reset grid</button>
+              </div>
+            </div>
+
+            <div class="canvas-stage">
+              <div class="canvas-scroll">
+                <canvas id="spriteCanvas" aria-label="Uploaded sprite sheet with grid overlay"></canvas>
+              </div>
+            </div>
+
+            <div class="asset-info" aria-label="Asset information">
+              <div class="metric">
+                <span>Grid</span>
+                <strong id="gridMetric">4 × 4</strong>
+              </div>
+              <div class="metric">
+                <span>Frames</span>
+                <strong id="frameMetric">16</strong>
+              </div>
+              <div class="metric">
+                <span>Cell size</span>
+                <strong id="cellMetric">—</strong>
+              </div>
+              <div class="metric">
+                <span>Source</span>
+                <strong id="sourceMetric">—</strong>
+              </div>
+            </div>
+          </div>
+
+          <p id="errorMessage" class="error-message" role="alert" hidden></p>
+          <input id="fileInput" type="file" accept="image/png,.png" hidden />
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
